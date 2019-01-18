@@ -1,5 +1,10 @@
 'use strict';
-
+/*
+    *   POST    /users: An endpoint to create new users.
+    *   GET     /users/{username}: An endpoint to retrieve users by their usernames.
+    *   POST    /birthdates: And endpoint to register new birthdates.
+    *   POST    /birthdates/{username}: An endpoint to retrieve the birthdate of a certain user.
+*/
 module.exports.register = (server, serviceLocator) => {
 
     server.post({
@@ -13,7 +18,7 @@ module.exports.register = (server, serviceLocator) => {
         (req, res, next) =>
         serviceLocator.get('userController').create(req, res, next)
     );
-
+        
     server.get({
             path: '/users/:username',
             name: 'Get User',
